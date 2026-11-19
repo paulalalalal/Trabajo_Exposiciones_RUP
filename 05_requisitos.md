@@ -19,7 +19,7 @@
 
 | ID | Descripción | Tipo | Prioridad | Caso de uso relacionado |
 |---|---|---|---|---|
-| RF-INV-01 | El sistema debe permitir al Jugador **agregar un ítem** al inventario de su Personaje siempre que haya espacio libre (máximo **30 espacios**) y el peso total resultante no supere el límite de la clase. Si el inventario ya tiene 30 espacios ocupados, debe rechazar la acción y mostrar el mensaje "Inventario lleno" sin modificar el inventario. | Funcional | Alta | CU-05 Gestionar Inventario |
+| RF-INV-01 | El sistema debe permitir al Jugador **agregar un ítem** al inventario de su Personaje siempre que haya espacio libre (máximo **30**) y el peso total resultante no supere el límite de la clase. Si el inventario ya tiene 30 espacios ocupados, debe rechazar la acción y mostrar el mensaje "Inventario lleno" sin modificar el inventario. | Funcional | Alta | CU-05 Gestionar Inventario |
 | RF-INV-02 | El sistema debe permitir **consultar el inventario** mostrando, por cada ítem: nombre, tipo, peso (kg), cantidad y si está equipado, junto con el peso total y los espacios usados (ej. "12/30"). | Funcional | Alta | CU-05 Gestionar Inventario |
 | RF-INV-03 | El sistema debe permitir **equipar un ítem** del inventario solo si es compatible con la clase del Personaje (Guerrero, Mago o Arquero). Si no es compatible, debe rechazar la acción e informar el motivo (ej. "Un Mago no puede equipar Espada pesada"). Un Personaje puede tener equipado **máximo 1 ítem por ranura** (arma, armadura, accesorio). | Funcional | Alta | CU-05 Gestionar Inventario |
 | RF-INV-04 | El sistema debe permitir **descartar un ítem** previa confirmación del Jugador. Al confirmar, el ítem desaparece del inventario y se liberan sus espacios y su peso. Si el Jugador cancela, el inventario no cambia. | Funcional | Media | CU-05 Gestionar Inventario |
@@ -67,11 +67,3 @@
 1. Los valores numéricos (30 espacios, 50 puntos de vida, límites de peso) son valores iniciales acordados para esta iteración y pueden ajustarse con el cliente.
 2. Las ranuras de equipo son tres: arma, armadura y accesorio.
 3. La compra de ítems exclusivos del Jugador Premium (CU-13) queda fuera de este módulo en la primera versión.
-
-## 6. Lista de verificación
-
-- [x] 6 requisitos funcionales con ID `RF-INV-01…06`
-- [x] 4 requisitos no funcionales con ID `RNF-INV-01…04`
-- [x] Cada requisito con ID, descripción, tipo y prioridad
-- [x] Todos verificables (contienen números o criterio medible)
-- [x] Nombres coherentes con el glosario y los casos de uso
