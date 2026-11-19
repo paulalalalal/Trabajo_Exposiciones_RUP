@@ -7,8 +7,8 @@ Carpeta de trabajo del **Equipo E2 · Requisitos** (Módulo: Inventario y equipa
 
 ## Dueños de cada artefacto
 
-| Equipo | Artefacto | Dueño | Estado |
-|---|---|---|---|
+| Equipo | Artefacto |  
+|---|---|
 | E2 | 5. Requisitos funcionales y no funcionales | 
 | E2 | 6. Modelo de casos de uso | 
 | E2 | 7. Especificación de casos de uso (Equipar ítem) |  
