@@ -1,1 +1,65 @@
+@startuml 06_modelo_casos_uso
+title Artefacto 6 · Modelo de casos de uso — Inventario y equipamiento (RPG Manager)
 
+left to right direction
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam packageStyle rectangle
+skinparam actorStyle awesome
+skinparam usecase {
+  BackgroundColor #F3F0FF
+  BorderColor #5B4BD6
+  ArrowColor #3B2F9E
+}
+skinparam rectangle {
+  BackgroundColor #FFFFFF
+  BorderColor #1B1744
+  FontStyle bold
+}
+skinparam note {
+  BackgroundColor #FFF8E1
+  BorderColor #E0A800
+}
+
+' ---------- Actores ----------
+actor "Jugador" as J
+actor "Game Master" as GM
+actor "Servicio de Respaldo\nen la Nube" as SR <<sistema externo>>
+
+' ---------- Límite del sistema ----------
+rectangle "RPG Manager · Módulo Inventario y equipamiento" {
+  usecase "CU-05\nGestionar inventario" as CU05
+  usecase "Consultar inventario" as CONS
+  usecase "Equipar ítem" as EQ
+  usecase "CU-09\nUsar poción" as CU09
+  usecase "Respaldar inventario" as RESP
+}
+
+' CU-07 pertenece a otro módulo: se dibuja fuera del límite
+usecase "CU-07\n(otro módulo)" as CU07 #EEEEEE
+
+' ---------- Asociaciones ----------
+J  --> CU05
+J  --> CU09
+GM --> CONS : solo lectura
+SR --> RESP : ≥ 1 vez cada 24 h (RNF-INV-04)
+
+' ---------- Relaciones entre casos de uso ----------
+CU05 ..> CONS : <<include>>
+EQ   ..> CU05 : <<extend>>
+CU09 ..> CU07 : <<extend>>
+
+' ---------- Notas de justificación ----------
+note bottom of CONS
+  <b>include:</b> todo flujo de gestión empieza
+  mostrando el inventario (RF-INV-02).
+  Además lo reutiliza el Game Master.
+end note
+
+note bottom of EQ
+  <b>extend:</b> opcional. Solo ocurre si el Jugador
+  elige «Equipar» sobre un ítem (RF-INV-03).
+  Se rechaza por A1, A2 o A3.
+end note
+
+@enduml
